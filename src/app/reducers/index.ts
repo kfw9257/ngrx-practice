@@ -1,10 +1,7 @@
 import {
-    ActionReducer,
     ActionReducerMap,
-    createFeatureSelector,
     createSelector,
-    MetaReducer,
-    select
+    MetaReducer
   } from '@ngrx/store';
   import { environment } from '../../environments/environment';
   import * as fromFighters from './fighters/fighters.reducer';
@@ -45,7 +42,7 @@ import {
     export const selectCurrentFighter = createSelector(
       selectFighterEntities,
       selectedFighterId ,
-      (FighterEntities, FighterId) => FighterEntities[FighterId]
+      (fighterEntities, fighterId) => fighterEntities[fighterId]
     );
 
   export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];

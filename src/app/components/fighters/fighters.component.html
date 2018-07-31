@@ -2,44 +2,44 @@
 <ul class="fighters">
   <li *ngFor="let fighter of (fighters$ | async)"
     (click)="onSelect(fighter.id)">
-    <span class="badge">{{fighter.id}}</span> {{fighter.first_name}} {{fighter.last_name}}
+    <span class="badge">{{ fighter.id }}</span> {{ fighter.first_name }} {{ fighter.last_name }}
   </li>
 </ul>
 
-<div *ngIf="(selectedFighter$ | async)">
+<div *ngIf="selectedFighter$ | async as selectedFighter">
 
-  <h2>{{ (selectedFighter$ | async).first_name | uppercase }} {{ (selectedFighter$ | async).last_name | uppercase }} Details</h2>
+  <h2>{{ selectedFighter.first_name | uppercase }} {{ selectedFighter.last_name | uppercase }} Details</h2>
   <div>      
-    <img src="{{ (selectedFighter$ | async).profile_image }}">
+    <img src="{{ selectedFighter.profile_image }}">
   </div>
   <div>
     <label>name:
-      {{(selectedFighter$ | async).first_name}} {{(selectedFighter$ | async).last_name}}
+      {{ selectedFighter.first_name }} {{ selectedFighter.last_name }}
     </label>
   </div>
   <div>
     <label>nickname: 
-        {{(selectedFighter$ | async).nickname || "None"}}
+        {{ selectedFighter.nickname || "None" }}
     </label>
   </div>
   <div>
     <label>wins: 
-        {{ (selectedFighter$ | async).wins }}
+        {{ selectedFighter.wins }}
     </label>
   </div>
   <div>
       <label>losses: 
-          {{ (selectedFighter$ | async).losses }}
+          {{ selectedFighter.losses }}
       </label>
   </div>
   <div>
       <label>draws: 
-          {{ (selectedFighter$ | async).draws }}
+          {{ selectedFighter.draws }}
       </label>
   </div>
   <div>
     <label>weight class:
-        {{ (selectedFighter$ | async).weight_class }}
+        {{ selectedFighter.weight_class }}
     </label>
   </div>
 </div>

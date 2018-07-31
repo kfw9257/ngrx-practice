@@ -24,16 +24,12 @@ export class FightersComponent implements OnInit {
   
   
   onSelect(fighterId): void {
-    console.dir(this.store.select(fromRoot.selectCurrentFighter));
+    
     this.selectedFighter$ = this.store.select(fromRoot.selectCurrentFighter);
     this.store.dispatch(new GetSelectedFighter(fighterId));
   }
 
-  // getFighters(): void {
-  //   this.fighterService.get20Fighters()
-  //   .subscribe(fighters => this.fighters = fighters);
-  // }
-
+ 
   ngOnInit() {
     this.store.dispatch(new Get());
     this.fighters$ = this.store.select(fromRoot.selectAllFighters);
