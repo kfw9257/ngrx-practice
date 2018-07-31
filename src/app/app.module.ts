@@ -20,10 +20,15 @@ import {
   CMSActionsSubject,
 } from './services/dispatcher.service';
 
+import { FightersComponent } from './components/fighters/fighters.component';
+import { FightersDetailComponent } from './components/fighters-detail/fighters-detail.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FightersComponent,
+    FightersDetailComponent
   ],
   imports: [
     BrowserModule,

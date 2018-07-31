@@ -1,0 +1,35 @@
+<h2>List of UFC fighters</h2>
+<ul class="fighters">
+  <li *ngFor="let fighter of (fighters$ | async)"
+    (click)="onSelect(fighter.id)">
+    <span class="badge">{{fighter.id}}</span> {{fighter.first_name}} {{fighter.last_name}}
+  </li>
+</ul>
+
+<div *ngIf="(selectedFighter$ | async)">
+
+  <h2>{{ (selectedFighter$ | async).first_name | uppercase }} {{ (selectedFighter$ | async).last_name | uppercase }} Details</h2>
+  <div>      
+    <img src="{{ (selectedFighter$ | async).profile_image }}">
+  </div>
+  <div>
+    <label>name:
+      {{(selectedFighter$ | async).first_name}} {{(selectedFighter$ | async).last_name}}
+    </label>
+  </div>
+  <div>
+    <label>wins: 
+        {{ (selectedFighter$ | async).wins }}
+    </label>
+  </div>
+  <div>
+      <label>losses: 
+          {{ (selectedFighter$ | async).losses }}
+      </label>
+  </div>
+  <div>
+      <label>draws: 
+          {{ (selectedFighter$ | async).draws }}
+      </label>
+  </div>
+</div>
