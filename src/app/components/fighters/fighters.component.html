@@ -18,6 +18,11 @@
     </label>
   </div>
   <div>
+    <label>nickname: 
+        {{(selectedFighter$ | async).nickname || "None"}}
+    </label>
+  </div>
+  <div>
     <label>wins: 
         {{ (selectedFighter$ | async).wins }}
     </label>
@@ -31,5 +36,10 @@
       <label>draws: 
           {{ (selectedFighter$ | async).draws }}
       </label>
+  </div>
+  <div>
+    <label>weight class:
+        {{ (selectedFighter$ | async).weight_class }}
+    </label>
   </div>
 </div>
